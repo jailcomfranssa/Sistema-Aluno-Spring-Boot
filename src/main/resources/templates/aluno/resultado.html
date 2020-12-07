@@ -1,0 +1,148 @@
+<!doctype html5>
+<html lang="pt_BR" xmlns:th="www.thymeleaf.org">
+<head>
+<!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+
+
+<title>Sistema Alunos</title>
+</head>
+<body>
+	
+	<!--/*/ <th:block th:include="fragments/header :: menu"></th:block> /*/-->
+
+	<main role="main" class="container">
+
+		<div class="starter-template">
+			<h1>Situação do Aluno</h1>
+			<hr />
+			
+			<div th:if="${not #strings.isEmpty(mensagem)}" th:utext="${mensagem} +'<button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;alert&quot; aria-label=&quot;Close&quot;><span aria-hidden=&quot;true&quot;>&times;</span></button>'" class="alert alert-danger alert-dismissible fade show" role="alert"></div>
+
+			
+			<br />
+			
+			<table class="table table-striped table-sm">
+				<thead>
+					<tr>
+						<th>nome</th>
+						<th>nota 1</th>
+						<th>nota 2</th>
+						<th>nota 3</th>
+						<th>media</th>
+						
+						
+						
+						
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="aluno : ${aluno}">
+						<td><a  th:text="${aluno.nome}"></a></td>
+							
+						<td><a th:text="${aluno.nota1}"></a></td>
+						<td><a th:text="${aluno.nota2}"></a></td>
+						<td><a th:text="${aluno.nota3}"></a></td>
+						<td><a th:if="${(aluno.nota1 != null)and (aluno.nota2 != null) and (aluno.nota3 != null)}"  th:text="(${aluno.nota1} + ${aluno.nota2} + ${aluno.nota3})/3"></a></td>
+						
+							
+						
+					</tr>
+				</tbody>
+				<thead>
+					<tr>
+						<th>faltas</th>
+					</tr>
+				</thead>
+				
+				<tbody>
+					<tr th:each="listaFalta,iterator  : ${listaFalta}">
+						
+						
+						<td><a  th:text=" ${listaFalta.faltas} "></a></td>
+	
+						
+					</tr>
+					
+				</tbody>
+			</table>
+			<div class="row">
+				<div class="col-md-6 mb-6">
+					<h2>Total de faltas</h2>
+					<h3> <span class="badge badge-secondary" th:text="  ${listaFaltatotal} "   ></span></h3>
+				</div>
+				<div class="col-md-6 mb-6">
+					<h2>Situação do Aluno</h2>
+					<h3> <span class="badge badge-secondary" th:text="${(aluno.nota1 == null)and (aluno.nota2 == null) and (aluno.nota3 == null)} ?'matriculado' : ${situacao} "></span></h3>
+				</div>
+			</div>
+			
+			
+		</div>
+		
+  
+	</main>
+	
+	
+	<!--/*/ <th:block th:include="fragments/footerinc :: foot"></th:block> /*/-->
+	
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

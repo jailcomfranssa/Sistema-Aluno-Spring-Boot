@@ -1,0 +1,54 @@
+
+<!doctype html>
+<html lang="pt_BR" xmlns:th="www.thymeleaf.org">
+<head>
+
+<!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+
+
+<title>Sistema Alunos</title>
+</head>
+<body>
+	
+	<!--/*/ <th:block th:include="fragments/header :: menu"></th:block> /*/-->
+
+	<main role="main" class="container">
+		<div class="starter-template">
+			
+			<span th:text="${mensagem}" style="color:blue"></span>
+
+			<div class="col-md-8 order-md-1">
+				<h1 class="mb-3">Inserir Falta de Aluno</h1>
+				
+				
+				<form th:action="@{/falta}" method="POST" th:object="${falta}">
+					<input type="hidden" th:field="*{id}"/>
+					
+					<div class="form-group">
+						<label for="exampleFormControlSelect1">Selecione o Aluno</label>
+						<select th:field="*{aluno.id}" class="form-control" id="exampleFormControlSelect2">
+							
+							<option th:each="aluno : ${listaAluno}" th:value="${aluno.id}" th:text="${aluno.nome}"></option>
+						</select>
+					</div>
+					
+					<div class="form-group">
+					    <label for="exampleFormControlSelect1">Numero de Falta</label>
+							<select th:field="*{faltas}" class="form-control" id="exampleFormControlSelect1">
+							    <option th:value=1 th:text="1"></option>
+							    <option th:value=2 th:text="2"></option>
+							     <option th:value=3 th:text="3"></option>
+							</select> 
+					 </div>
+					
+					
+					<hr class="mb-4">
+					<button class="btn btn-primary btn-lg btn-block" type="submit">Salvar</button>
+				</form>
+			</div>
+
+		</div>
+	</main>
+
+	</body>
+</html>

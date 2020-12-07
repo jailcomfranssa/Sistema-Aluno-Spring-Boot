@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt_BR" xmlns:th="www.thymeleaf.org">
+<head>
+
+<!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+
+<title>Sistema Alunos</title>
+</head>
+<body>
+	
+	<!--/*/ <th:block th:include="fragments/header :: menu"></th:block> /*/-->
+
+	<main role="main" class="container">
+		<div class="starter-template">
+			
+			<span th:text="${mensagem}" style="color:blue"></span>
+
+			<div class="col-md-8 order-md-1">
+				<h1 class="mb-3">Cadastro de Alunos</h1>
+				
+				<form th:action="@{/aluno}" method="POST" th:object="${aluno}">
+					<input type="hidden" th:field="*{id}"/>
+					<div class="row">
+						<div class="col-md-3 mb-3">
+							<label for="correntista">nome</label> <input type="text"
+								th:field="*{nome}" class="form-control" required="true"  />
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-md-3 mb-3">
+							<label for="lastName">Data Nascimento</label> <input type="text"
+								th:field="*{data}" class="form-control" required="true" />
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-md-3 mb-3">
+							<label for="correntista">situacao</label> <input type="text"
+								th:field="*{situacao}" class="form-control" />
+						</div>
+					</div>
+					<hr class="mb-4">
+					<button class="btn btn-primary btn-lg btn-block" type="submit">Salvar</button>
+				</form>
+			</div>
+
+		</div>
+	</main>
+
+	</body>
+</html>

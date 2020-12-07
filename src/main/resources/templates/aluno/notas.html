@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pt_BR" xmlns:th="www.thymeleaf.org">
+<head>
+
+<!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+
+<title>Sistema Alunos</title>
+</head>
+<body>
+	
+	<!--/*/ <th:block th:include="fragments/header :: menu"></th:block> /*/-->
+
+	<main role="main" class="container">
+		<div class="starter-template">
+			
+			<span th:text="${mensagem}" style="color:blue"></span>
+
+	<div class="card center" >
+		<div class="card-header">
+		    <h2>Inserir Nota</h2>
+		  </div>
+  		<div class="card-body">
+			<div class="col-md-12 order-md-1">
+				
+				
+				
+				<form th:action="@{/aluno}" method="POST" th:object="${aluno}">
+					<input type="hidden" th:field="*{id}"/>
+					
+					<br/>
+					
+					
+					<div class="row">
+						<div class="col-md-6 mb-6">
+							<h3> <span class="badge badge-secondary" >Aluno</span></h3>
+							<h3> <span  th:text="*{nome}"></span></h3>
+							<input type="hidden"
+								th:field="*{nome}" class="form-control" />
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-md-4 mb-4">
+							<h3> <span class="badge badge-secondary" >Nota:1</span></h3> <input type="text"
+								th:field="*{nota1}" class="form-control" />
+						</div>
+						
+						<div class="col-md-4 mb-4">
+							<h3> <span class="badge badge-secondary" >Nota:2</span></h3> <input type="text"
+								th:field="*{nota2}" class="form-control" />
+						</div>
+						
+						<div class="col-md-4 mb-4">
+							<h3> <span class="badge badge-secondary" >Nota:3</span></h3> <input type="text"
+								th:field="*{nota3}" class="form-control" />
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-md-3 mb-3">
+							<label for="lastName"></label> <input type="hidden"
+								th:field="*{data}" class="form-control" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-3 mb-3">
+							<label for="correntista"></label> <input  type="hidden"
+								th:field="*{situacao}" class="form-control" />
+						</div>
+					</div>
+					
+					
+					
+					
+					<hr class="mb-12">
+					<button class="btn btn-primary btn-lg btn-block" type="submit">Salvar</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+		</div>
+	</main>
+
+	</body>
+</html>
