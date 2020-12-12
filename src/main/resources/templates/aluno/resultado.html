@@ -72,7 +72,8 @@
 				</div>
 				<div class="col-md-6 mb-6">
 					<h2>Situação do Aluno</h2>
-					<h3> <span class="badge badge-secondary" th:text="${(aluno.nota1 == null)and (aluno.nota2 == null) and (aluno.nota3 == null)} ?'matriculado' : ${situacao} "></span></h3>
+					<h3> <span class="badge badge-secondary" th:text="${(aluno.nota1 == null)or (aluno.nota2 == null) or (aluno.nota3 == null) and (listaFaltatotal < 25)  }  ?'matriculado' : ${situacao} "></span></h3>
+					
 				</div>
 			</div>
 			

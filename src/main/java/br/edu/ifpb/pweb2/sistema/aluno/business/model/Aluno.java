@@ -1,7 +1,6 @@
 package br.edu.ifpb.pweb2.sistema.aluno.business.model;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -49,8 +48,7 @@ public class Aluno implements Serializable{
 	private Integer nota3;
 	
 	
-	@OneToMany (mappedBy = "aluno", cascade = {CascadeType.ALL})
-	private Set<Notas> nota = new HashSet<Notas>();
+	
 	
 	@OneToMany (mappedBy = "aluno", cascade = {CascadeType.ALL})
 	private Set<Falta> falta = new HashSet<Falta>();
@@ -89,13 +87,7 @@ public class Aluno implements Serializable{
 		this.data = data;
 	}
 
-	public Set<Notas> getNota() {
-		return nota;
-	}
-
-	public void setNota(Set<Notas> nota) {
-		this.nota = nota;
-	}
+	
 
 	public Set<Falta> getFata() {
 		return falta;
@@ -134,7 +126,7 @@ public class Aluno implements Serializable{
 	@Override
 	public String toString() {
 		return "Aluno [id=" + id + ", nome=" + nome + ", situacao=" + situacao + ", data=" + data + ", nota1=" + nota1
-				+ ", nota2=" + nota2 + ", nota3=" + nota3 + ", nota=" + nota + ", falta=" + falta + "]";
+				+ ", nota2=" + nota2 + ", nota3=" + nota3 + ",  falta=" + falta + "]";
 	}
 
 	
