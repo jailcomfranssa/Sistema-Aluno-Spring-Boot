@@ -6,47 +6,58 @@
 
 <title>Sistema Alunos</title>
 </head>
-<body>
-	
-	<!--/*/ <th:block th:include="fragments/header :: menu"></th:block> /*/-->
 
-	<main role="main" class="container">
-		<div class="starter-template">
-			
-			<span th:text="${mensagem}" style="color:blue"></span>
+<body style="background-color: cadetblue;">
 
-			<div class="col-md-8 order-md-1">
-				<h1 class="mb-3">Cadastro de Alunos</h1>
-				
-				<form th:action="@{/aluno}" method="POST" th:object="${aluno}">
-					<input type="hidden" th:field="*{id}"/>
-					<div class="row">
-						<div class="col-md-3 mb-3">
-							<label for="correntista">nome</label> <input type="text"
-								th:field="*{nome}" class="form-control" required="true"  />
-						</div>
-					</div>
-					
-					<div class="row">
-						<div class="col-md-3 mb-3">
-							<label for="lastName">Data Nascimento</label> <input type="text"
-								th:field="*{data}" class="form-control" required="true" />
-						</div>
-					</div>
-					
-					<div class="row">
-						<div class="col-md-3 mb-3">
-							<label for="correntista">situacao</label> <input type="text"
-								th:field="*{situacao}" class="form-control" />
-						</div>
-					</div>
-					<hr class="mb-4">
-					<button class="btn btn-primary btn-lg btn-block" type="submit">Salvar</button>
-				</form>
-			</div>
+<!--/*/ <th:block th:include="fragments/header :: menu"></th:block> /*/-->
 
-		</div>
-	</main>
+   <div class="container">
 
-	</body>
+      <div class="row">
+      	 <div class="col-2">
+	  </div>
+	    
+	     <div class="col-8">
+		      
+		      <div class="card mb-3" style="max-width: 100%;">
+				  <div class="row no-gutters">
+				    <div class="col-md-4">
+				      <img th:src="@{/images/aluno.jpg}" alt="User" width= 258px/>
+				    </div>
+				    <div class="col-md-8" style="background-color: gainsboro;">
+				    
+				      <div class="card-body">
+				        <h3 class="card-title">Cadastrar Aluno</h3>
+				        
+				        <form th:action="@{/aluno}" method="POST" th:object="${aluno}">
+						  <div class="form-group">
+						    <label for="exampleInputEmail1">nome</label>
+						    <input type="text" class="form-control" id="nome" aria-describedby="emailHelp" th:field="*{nome}" required="true">
+						    
+						  </div>
+						  <div class="form-group">
+						    <label for="exampleInputPassword1">Data Nascimento</label>
+						    <input type="text" class="form-control" id="data" th:field="*{data}" required="true">
+						  </div>
+						  
+						  <div class="form-group">
+						    <label for="exampleInputPassword1">situação</label>
+						    <input type="text" class="form-control" id="situacao" th:field="*{situacao}" >
+						  </div>
+						  
+						  <button type="submit" class="btn btn-primary">Salvar</button>
+						</form>
+				        
+				        <p class="card-text"><small class="text-muted" style="margin-left: 330px;"><a th:href="@{/home}">Volta Pagina Inicial</a></small></p>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+		  </div>
+		  <div class="col-2">    
+		  </div>
+      </div>
+  </div>
+</body>
+
 </html>

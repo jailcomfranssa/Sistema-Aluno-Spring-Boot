@@ -13,14 +13,18 @@
 <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
 </head>
 <body style="background-color:#2fb9c3">
-	
+	<h2 th:text="${mensagem}" th:if="${mensagem != null}"></h2>
+	<p>Usuario logado</p><span th:text="${session.usuarioLogado.login}"></span>
+	<a th:href="@{login/out}">sair sessão</a>
 	<!--/*/ <th:block th:include="fragments/header :: menu"></th:block> /*/-->
+	
 	
 	<main role="main" class="container" >
 		<div class="starter-template centered">
 			<img th:src="@{/images/banco-spring.jpg}"/>
 		</div>
 	</main>
+	
 	
 	<!--/*/ <th:block th:include="fragments/footerinc :: foot"></th:block> /*/-->
 	

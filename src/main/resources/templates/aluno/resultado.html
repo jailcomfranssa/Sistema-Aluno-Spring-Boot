@@ -14,7 +14,7 @@
 
 		<div class="starter-template">
 			<h1>Situação do Aluno</h1>
-			<hr />
+			
 			
 			<div th:if="${not #strings.isEmpty(mensagem)}" th:utext="${mensagem} +'<button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;alert&quot; aria-label=&quot;Close&quot;><span aria-hidden=&quot;true&quot;>&times;</span></button>'" class="alert alert-danger alert-dismissible fade show" role="alert"></div>
 
@@ -75,6 +75,14 @@
 					<h3> <span class="badge badge-secondary" th:text="${(aluno.nota1 == null)or (aluno.nota2 == null) or (aluno.nota3 == null) and (listaFaltatotal < 25)  }  ?'matriculado' : ${situacao} "></span></h3>
 					
 				</div>
+			</div>
+			
+			<div class="row" th:if="${situacao == 'Em Final'} ">
+				<div class="col-md-6 mb-6">
+					<h2>Esperando nota da final</h2>
+					
+				</div>
+				
 			</div>
 			
 			
