@@ -54,16 +54,19 @@
 							
 						<td><a th:text="${aluno.situacao}"></a></td>
 						<td>
-							<a class="btn btn-outline-primary btn-sm" th:href="@{/aluno/{id}/delete(id=${aluno.id})}">
-								<img th:src="@{/icons/trash.svg}" title="Excluir aluno" alt="Excluir aluno"/>
+						
+							<a class="btn btn-outline-primary btn-sm" th:href="@{/aluno/{id}/nota(id=${aluno.id})}">
+								<img th:src="@{/icons/book.svg}" title="Digitar Notas" alt="Digitar Notas"/>
 							</a>
+							
 							<a th:href="@{/aluno/{id}/resultado/(id=${aluno.id})}" class="btn btn-outline-primary btn-sm text-white"
 								type="submit">
 								<span class="color:white"><img th:src="@{/icons/file-earmark-diff.svg}" title="Ver Situação" alt="Ver Situação"/></span>
 							</a>
 							
-							<a class="btn btn-outline-primary btn-sm" th:href="@{/aluno/{id}/nota(id=${aluno.id})}">
-								<img th:src="@{/icons/book.svg}" title="Digitar Notas" alt="Digitar Notas"/>
+							
+							<a class="btn btn-outline-primary btn-sm" th:href="@{/aluno/{id}/delete(id=${aluno.id})}">
+								<img th:src="@{/icons/trash.svg}" title="Excluir aluno" alt="Excluir aluno"/>
 							</a>
 							
 						</td>
