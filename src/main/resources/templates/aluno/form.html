@@ -30,6 +30,7 @@
 				        <h3 class="card-title">Cadastrar Aluno</h3>
 				        
 				        <form th:action="@{/aluno}" method="POST" th:object="${aluno}">
+				        	<input type="hidden" th:field="*{id}"/>
 						  <div class="form-group">
 						    <label for="exampleInputEmail1">nome</label>
 						    <input type="text" class="form-control" id="nome" aria-describedby="emailHelp" th:field="*{nome}" required="true">

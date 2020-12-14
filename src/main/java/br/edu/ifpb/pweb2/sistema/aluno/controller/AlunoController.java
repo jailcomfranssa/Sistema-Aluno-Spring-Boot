@@ -38,7 +38,7 @@ public class AlunoController {
 	public ModelAndView adicioneConta(Aluno aluno, ModelAndView modelAndView, RedirectAttributes attr ) {
 		alunoService.saveAluno(aluno);
 		modelAndView.setViewName("redirect:/aluno");
-		attr.addFlashAttribute("mensagem", "Aluno salva com sucesso!");
+		attr.addFlashAttribute("mensagem1", "Dados atualizados !");
 		return modelAndView;
 	}
 	

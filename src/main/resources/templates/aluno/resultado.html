@@ -14,13 +14,10 @@
 
 		<div class="starter-template">
 			<h1>Situação do Aluno</h1>
-			
-			
+						
 			<div th:if="${not #strings.isEmpty(mensagem)}" th:utext="${mensagem} +'<button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;alert&quot; aria-label=&quot;Close&quot;><span aria-hidden=&quot;true&quot;>&times;</span></button>'" class="alert alert-danger alert-dismissible fade show" role="alert"></div>
 
-			
 			<br />
-			
 			<table class="table table-striped table-sm">
 				<thead>
 					<tr>
@@ -28,11 +25,7 @@
 						<th>nota 1</th>
 						<th>nota 2</th>
 						<th>nota 3</th>
-						<th>media</th>
-						
-						
-						
-						
+						<th>media</th>	
 					</tr>
 				</thead>
 				<tbody>
@@ -43,39 +36,50 @@
 						<td><a th:text="${aluno.nota2}"></a></td>
 						<td><a th:text="${aluno.nota3}"></a></td>
 						<td><a th:if="${(aluno.nota1 != null)and (aluno.nota2 != null) and (aluno.nota3 != null)}"  th:text="(${aluno.nota1} + ${aluno.nota2} + ${aluno.nota3})/3"></a></td>
-						
-							
-						
 					</tr>
-				</tbody>
-				<thead>
-					<tr>
-						<th>faltas</th>
-					</tr>
-				</thead>
-				
-				<tbody>
-					<tr th:each="listaFalta,iterator  : ${listaFalta}">
-						
-						
-						<td><a  th:text=" ${listaFalta.faltas} "></a></td>
-	
-						
-					</tr>
-					
 				</tbody>
 			</table>
+			
 			<div class="row">
-				<div class="col-md-6 mb-6">
-					<h2>Total de faltas</h2>
-					<h3> <span class="badge badge-secondary" th:text="  ${listaFaltatotal} "   ></span></h3>
-				</div>
-				<div class="col-md-6 mb-6">
-					<h2>Situação do Aluno</h2>
-					<h3> <span class="badge badge-secondary" th:text="${(aluno.nota1 == null)or (aluno.nota2 == null) or (aluno.nota3 == null) and (listaFaltatotal < 25)  }  ?'matriculado' : ${situacao} "></span></h3>
-					
-				</div>
+				<div class="col-6" style="background-color: #ff00005e;">
+			      <table class="table table-striped table-sm">
+						<thead>
+							<tr>
+								<th>faltas</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="listaFalta,iterator  : ${listaFalta}">	
+							<td><a  th:text=" ${listaFalta.faltas} "></a></td>
+							</tr>
+						</tbody>
+					</table>
+			      
+			      
+			      
+			    </div>
+			    
+			    <div class="col-6" style="background-color: #8fbc8f8a;">
+			    	
+			    	<div class="row" style="margin-top: 52px;">
+						<div class="col-md-6 mb-6">
+							<h4>Total de faltas</h4>
+							<h4> <span class="badge badge-secondary" th:text="  ${listaFaltatotal} "   ></span></h4>
+						</div>
+						<div class="col-md-6 mb-6">
+							<h4>Situação do Aluno</h4>
+							<h4> <span class="badge badge-secondary" th:text="${(aluno.nota1 == null)or (aluno.nota2 == null) or (aluno.nota3 == null) and (listaFaltatotal < 25)  }  ?'matriculado' : ${situacao} "></span></h4>
+							
+						</div>
+					</div>
+			     
+			     
+			    </div>
 			</div>
+			
+			
+			
+			
 			
 			<div class="row" th:if="${situacao == 'Em Final'} ">
 				<div class="col-md-6 mb-6">

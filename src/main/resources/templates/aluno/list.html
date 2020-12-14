@@ -28,9 +28,10 @@
 			<hr />
 			
 			<div th:if="${not #strings.isEmpty(mensagem)}" th:utext="${mensagem} +'<button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;alert&quot; aria-label=&quot;Close&quot;><span aria-hidden=&quot;true&quot;>&times;</span></button>'" class="alert alert-danger alert-dismissible fade show" role="alert"></div>
+			<div th:if="${not #strings.isEmpty(mensagem1)}" th:utext="${mensagem1} +'<button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;alert&quot; aria-label=&quot;Close&quot;><span aria-hidden=&quot;true&quot;>&times;</span></button>'" class="alert alert-success alert-dismissible fade show" role="alert"></div>
 
 			<form action="aluno/form" method="GET">
-				<button class="btn btn-primary" type="submit">Nova</button>
+				<button class="btn btn-primary" type="submit">Cadastrar Aluno</button>
 			</form>
 			<br />
 			
