@@ -2,6 +2,7 @@ package br.edu.ifpb.pweb2.sistema.aluno.controller;
 
 import javax.servlet.http.HttpSession;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,12 +28,11 @@ public class Login {
 	}
 	@RequestMapping(method = RequestMethod.POST)
 	public ModelAndView autentique(Usuario usuario, HttpSession session, ModelAndView modelAndView, RedirectAttributes attrs){
-		if(usuarioService.isValido(usuario)){
-			System.out.println(usuarioService.isValido(usuario));
+		if((usuario = usuarioService.isValido(usuario)) != null){
 			session.setAttribute("usuarioLogado", usuario);
 			session.setMaxInactiveInterval(5 * 60);
-			attrs.addFlashAttribute("mensagem", "Login OK");
 			modelAndView.setViewName("redirect:/home");
+			System.out.println(usuario);
 			
 		}
 		else{

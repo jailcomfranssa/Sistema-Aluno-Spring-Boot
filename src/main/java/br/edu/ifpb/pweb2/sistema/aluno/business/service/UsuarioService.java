@@ -27,9 +27,9 @@ public class UsuarioService {
 		return usuarioDAO.findAll();
 		
 	}
-	public boolean isValido(Usuario usuario) {
+	public Usuario isValido(Usuario usuario) {
 		Usuario usuarioBD = usuarioDAO.findBylogin(usuario.getLogin());
-		System.out.println(usuarioBD);
+		
 		boolean valido = false;
 		if(usuarioBD != null) {
 			if (PasswordUtil.checkPass(usuario.getSenha(), usuarioBD.getSenha())) {
@@ -37,7 +37,7 @@ public class UsuarioService {
 					valido = true;
 			}
 		}
-		return valido;
+		return valido ? usuarioBD : null;
 		
 	}
 }
